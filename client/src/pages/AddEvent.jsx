@@ -21,7 +21,14 @@ export default function AddEvent() {
 
   const handleImageUpload = (e) => {
     const file = e.target.files[0];
-    setFormData((prevState) => ({ ...prevState, image: file }));
+    if (file) {
+      const imageUrl = URL.createObjectURL(file);
+      setFormData((prevState) => ({
+        ...prevState,
+        image: file, // Store the file
+        imagePreview: imageUrl, // Store preview URL
+      }))
+    }  
   };
 
   const handleChange = (e) => {
@@ -33,11 +40,12 @@ export default function AddEvent() {
     }
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
+  const handleSubmit = () => {
+    // e.preventDefault();
     axios
       .post("/createEvent", formData)
       .then((response) => {
+        alert("Event posted successfully")
         console.log("Event posted successfully:", response.data);
         
       })
