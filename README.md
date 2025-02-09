@@ -29,6 +29,9 @@ Introducing our Event Management System, a solution developed as part of our fin
 
 **Instalaltion**
 1. Clone the repository to your local machine.
+```bash
+https://github.com/nishtha-902/EventoEMS.git
+```
 2. Navigate to the project directory. use two terminal <br>
     **Cd Client** - For Frontend <br>
     **Cd api** - For Backend <br>
